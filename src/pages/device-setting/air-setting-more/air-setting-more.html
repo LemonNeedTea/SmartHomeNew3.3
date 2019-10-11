@@ -1,0 +1,66 @@
+<!--
+  Generated template for the AirSettingMorePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+  <ion-navbar transparent>
+    <ion-title>更多设置</ion-title>
+    <!-- <ion-buttons end>
+      <button ion-button icon-only (click)="presentShowModal()">
+        <ion-icon name="alarm" style="color: white"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list no-margin>
+    <!-- <ion-item>
+      <ion-label>联动开</ion-label>
+      <ion-toggle [(ngModel)]="linkage"></ion-toggle>
+    </ion-item> -->
+    <!-- <ion-item>
+      <ion-label>水阀1开<span class="tip" *ngIf="open">-关机模式下有效</span></ion-label>
+      <ion-toggle [(ngModel)]="valve1" [disabled]='open' (ngModelChange)="setvalue1()"></ion-toggle>
+    </ion-item> -->
+    <ion-item>
+      <ion-label>水阀2开<span class="tip" *ngIf="open">-关机模式下有效</span></ion-label>
+      <ion-toggle [(ngModel)]="valve2" [disabled]='open' (ngModelChange)="setvalue2()"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>键盘锁</ion-label>
+      <ion-toggle [(ngModel)]="keyboardLock" (ngModelChange)="setKeyboardLock()"></ion-toggle>
+    </ion-item>
+    <button ion-item>
+      <ion-label>制热上限</ion-label>
+      <ion-multi-picker item-content [multiPickerColumns]="tempColumns" cancelText="取消" doneText="确定"
+        [(ngModel)]="hotUpperLimit" (ionChange)="sethotUpperLimit()"> </ion-multi-picker>
+    </button>
+    <button ion-item>
+      <ion-label>制冷下限</ion-label>
+      <ion-multi-picker item-content [multiPickerColumns]="tempColumns" cancelText="取消" doneText="确定"
+        [(ngModel)]="coolOffline" (ionChange)="setcoolOffline()"> </ion-multi-picker>
+    </button>
+    <button ion-item>
+      <ion-label>背光延时</ion-label>
+      <ion-multi-picker item-content [multiPickerColumns]="backLightColumns" cancelText="取消" doneText="确定"
+        [(ngModel)]="backlightDelay" (ionChange)="setBacklightDelay()"> </ion-multi-picker>
+    </button>
+    <button ion-item (click)="presentPrompt(tempDeviation)">
+      <ion-label>温度偏移</ion-label>
+      <span item-end ion-text color='primary'>{{tempDeviation}}℃</span>
+      <!-- <ion-multi-picker item-content [multiPickerColumns]="tempColumns" cancelText="取消" doneText="确定"
+        [(ngModel)]="tempDeviation"> </ion-multi-picker> -->
+    </button>
+    <!-- <button ion-item (click)="presentAddress()">
+      <ion-label>服务器地址</ion-label>
+    </button>
+    <button ion-item>
+      <ion-label>备用服务器地址</ion-label>
+
+    </button> -->
+  </ion-list>
+</ion-content>

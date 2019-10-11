@@ -1,0 +1,30 @@
+<!--
+  Generated template for the AirSettingModePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+  <ion-navbar transparent>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+
+</ion-content>
+<ion-footer>
+  <ion-grid class="mode">
+    <ion-row>
+      <ion-col *ngFor="let item of dataList" col-4>
+        <img src="../../../assets/air/{{item.F_Icon}}" (click)="dismiss(item)" />
+        {{item.F_Name?item.F_Name:item.F_ParamsName}}
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+  <div class="dismiss">
+    <ion-icon name="arrow-down" (click)="dismiss()"></ion-icon>
+  </div>
+</ion-footer>

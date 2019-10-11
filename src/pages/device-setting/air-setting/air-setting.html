@@ -1,0 +1,171 @@
+<!--
+  Generated template for the AirSettingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+  <ion-navbar transparent>
+    <ion-title>{{name}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goMorePage()" style="color: white">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list style="    width: 100%;position: absolute;top: 0;">
+    <ion-row class="room-temp-row">
+      <div class="room-temp">室温&nbsp;&nbsp;{{roomTempData}}°C</div>
+    </ion-row>
+    <ion-row>
+      <!-- <ion-col class="shidu">
+        湿度&nbsp;&nbsp;{{airData.F6014}}%
+
+      </ion-col> -->
+    </ion-row>
+  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 class="col-clock">
+        <div *ngIf="keyboardLock">
+          <img src="../../../assets/air/lock.png" />
+          <div>键盘锁</div>
+        </div>
+
+      </ion-col>
+      <ion-col col-6 class="col-clock">
+        <div *ngIf="linkage">
+          <img src="../../../assets/air/connect.png" />
+          <div>联动</div>
+        </div>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="temp-add" col-2>
+        <button ion-button icon-only (click)="tempAdd()" [hidden]="!open">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-8 style="display: flex;justify-content: center;align-items: center;">
+        <div id="circlebar" class="container">
+          <div class="temp-show">
+            <p><span>
+                <!-- {{temp | number:'1.1-1'}} -->
+                <ion-multi-picker [multiPickerColumns]="tempColumns" cancelText="取消" doneText="确定" [(ngModel)]="temp"
+                  (ngModelChange)="changeTemp()" [disabled]="!open"> </ion-multi-picker>
+                °C
+              </span></p>
+            <p [hidden]="!open">{{selectedSpped.F_ParamsName?selectedSpped.F_ParamsName:'自动'}}
+              &nbsp;&nbsp;{{selectedMode.F_ParamsName}}
+            </p>
+
+          </div>
+        </div>
+      </ion-col>
+
+
+      <ion-col class="temp-sub" col-2 [hidden]="!open">
+        <button ion-button icon-only (click)="tempSub()">
+          <ion-icon name="remove"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 class="col-clock">
+        <div *ngIf="valve1">
+
+          <img src="../../../assets/air/valve.png" />
+          <div>水阀1</div>
+        </div>
+
+      </ion-col>
+      <ion-col col-6 class="col-clock">
+        <div *ngIf="valve2">
+
+          <img src="../../../assets/air/valve.png" />
+          <div>水阀2</div>
+        </div>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-3 class="col-center">
+        <div class="timer-div" (click)="presentShowModal(1,'定时1')">
+          <span [ngClass]="{'timer-close': !timer1Open}"></span>
+          定时1
+        </div>
+      </ion-col>
+      <ion-col col-3 class="col-center">
+        <div class="timer-div" (click)="presentShowModal(2,'定时2')">
+          <span [ngClass]="{'timer-close': !timer2Open}"></span>
+          定时2
+        </div>
+      </ion-col>
+      <ion-col col-3 class="col-center">
+        <div class="timer-div" (click)="presentShowModal(3,'定时3')">
+          <span [ngClass]="{'timer-close': !timer3Open}"></span>
+          定时3
+        </div>
+      </ion-col>
+      <ion-col col-3 class="col-center">
+        <div class="timer-div" (click)="presentShowModal(4,'定时4')">
+          <span [ngClass]="{'timer-close': !timer4Open}"></span>
+          定时4
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row class="speed" [hidden]="!open">
+      <ion-col col-4>
+        风速设定
+      </ion-col>
+      <ion-col col-8>
+        <ul>
+          <li [ngClass]="{'selected': speedMode}" (click)="setSpeedMode()">自动</li>
+          <li *ngFor="let item of speedKV" [ngClass]="{'selected': selectedSpped.F_ID==item.F_ID}"
+            (click)="setSpeed(item)">{{item.F_ParamsName}}</li>
+          <!-- <li [ngClass]="{'selected': speedModel==0}" (click)="setSpeed(0)">自动</li>
+          <li [ngClass]="{'selected': speedModel==3}" (click)="setSpeed(3)">高</li>
+          <li [ngClass]="{'selected': speedModel==2}" (click)="setSpeed(2)">中</li>
+          <li [ngClass]="{'selected': speedModel==1}" (click)="setSpeed(1)">低</li> -->
+        </ul>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-grid class="mode" [ngClass]="{'border-top-none': !open}">
+        <ion-row>
+          <ion-col col-4>
+            <div class="mode-div" [hidden]="!open">
+              <img *ngIf="selectedMode.F_Icon" [src]="'../../../assets/air/'+selectedMode.F_Icon" (click)="setMode()"
+                [ngClass]="selectedMode.F_Class" />
+              <img *ngIf=" !selectedMode.F_Icon" (click)="setMode()" />
+              <!-- <img src="../../../assets/cool.png" (click)="setMode()"/> -->
+              {{selectedMode.F_ParamsName}}
+            </div>
+
+          </ion-col>
+          <ion-col col-4>
+            <img src="../../../assets/check.png" [ngClass]="{'selected': open}" (click)="setOpen()" />
+
+            开关
+          </ion-col>
+          <ion-col col-4 [hidden]="!open">
+            <img src="../../../assets/air/eco.png" [ngClass]="{'eco-color': eco}" (click)='setEco()' />
+
+
+            节能
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
