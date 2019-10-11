@@ -282,20 +282,20 @@ page-home {
     background: rgba(0, 0, 0, 0);
   }
 
-  .mode-pic {
-    background: url("../../assets/mode.jpg") no-repeat;
+  .icon-mode-leavehome {
+    background: url("../../assets/img/home/icon-mode/icon-mode-leavehome.png") no-repeat;
   }
 
-  .mode-pic1 {
-    background: url("../../assets/mode1.jpg") no-repeat;
+  .icon-mode-returnhome {
+    background: url("../../assets/img/home/icon-mode/icon-mode-returnhome.png") no-repeat;
   }
 
-  .mode-pic2 {
-    background: url("../../assets/mode2.jpg") no-repeat;
+  .icon-mode-sleep {
+    background: url("../../assets/img/home/icon-mode/icon-mode-sleep.png") no-repeat;
   }
 
-  .mode-pic3 {
-    background: url("../../assets/mode3.jpg") no-repeat;
+  .icon-mode-work {
+    background: url("../../assets/img/home/icon-mode/icon-mode-work.png") no-repeat;
   }
 
   .mode-item {
@@ -335,6 +335,11 @@ page-home {
     // text-align: center;
 
     z-index: 11;
+  }
+
+  .mode-item-header {
+    height: 100%;
+    margin-bottom: 35px;
   }
 
   .mode-item-footer {

@@ -133,7 +133,13 @@ export class HomePage {
       // });
       this.deviceRequest.getHomePageInfo().then(res => {
         this.envData = res['envData'];
-        this.modeDataList = res['modeDataList'];
+        let modeDataList = res['modeDataList'];
+        modeDataList.map(res => {
+          res.F_Img = res.F_Img.split('.')[0];
+          return res;
+        })
+        this.modeDataList = modeDataList;
+
         this.homeParams = res['homeParams'];
         reject(true);
       });
@@ -150,7 +156,8 @@ export class HomePage {
     this.navCtrl.push('ModeSettingPage', { mode: mode });
   }
   setMode(mode: any) {
-    this.tools.showAnimatePulse(this.el, `mode${mode.F_AgreementID}`);
+
+    // this.tools.showAnimatePulse(this.el, `mode${mode.F_AgreementID}`);
     // this.tools.showAnimatePulse(`mode${id}`);
 
     let auto = Variable.isAuto;
