@@ -100,7 +100,7 @@
           <div *ngSwitchCase="'mode'">
 
             <div class="mode-item" [ngStyle]="modeItemStyle" [ngClass]="mode.F_Img" *ngFor="let mode of modeDataList">
-              <div class="drag">
+              <div class="drag" [ngClass]="{'mode-item-header-active': modeID==mode.F_AgreementID}">
                 <div class="mode-item-header" (click)="goModeSetting(mode)">{{mode.F_Name}}</div>
                 <div class="mode-item-footer" (click)="setMode(mode,$event)">执行</div>
               </div>

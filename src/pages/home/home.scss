@@ -337,9 +337,21 @@ page-home {
     z-index: 11;
   }
 
+  .mode-item-header-active::before {
+    content: "";
+    float: right;
+    background: url(../../assets/now.png) no-repeat;
+    background-size: cover;
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+
+  }
+
   .mode-item-header {
     height: 100%;
-    margin-bottom: 35px;
+    padding-top: 8px;
+    // margin-bottom: 35px;
   }
 
   .mode-item-footer {
