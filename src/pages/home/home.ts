@@ -26,6 +26,7 @@ export class HomePage {
   weatherinfo: any = {};
   homeType: string = 'mode';
   power: string;
+  modeItemStyle = {};
   oneData: any = { ud: 0, um: 0, uy: 0 };
 
   homeParams: any;
@@ -108,6 +109,10 @@ export class HomePage {
 
   }
   ionViewDidEnter() {
+    let htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+    this.modeItemStyle = {
+      'height': `${(htmlWidth - 30) / 2.3}px`
+    };
     // this.fnDataSubscribe();
   }
 

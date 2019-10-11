@@ -98,20 +98,20 @@
         <div [ngSwitch]="homeType">
           <div *ngSwitchCase="'mode'">
 
-            <div class="mode-item mode-pic">
+            <div class="mode-item mode-pic" [ngStyle]="modeItemStyle">
               <div class="drag">
                 <div class="mode-item-header">离家模式</div>
                 <div class="mode-item-footer">执行</div>
               </div>
             </div>
-            <div class="mode-item mode-pic2">
+            <div class="mode-item mode-pic2" [ngStyle]="modeItemStyle">
               <div class="drag">
                 <div class="mode-item-header">回家模式</div>
                 <div class="mode-item-footer">执行</div>
               </div>
 
             </div>
-            <div class="mode-item mode-pic3">
+            <div class="mode-item mode-pic3" [ngStyle]="modeItemStyle">
               <div class="drag">
                 <div class="mode-item-header">睡眠模式</div>
                 <div class="mode-item-footer">执行</div>
