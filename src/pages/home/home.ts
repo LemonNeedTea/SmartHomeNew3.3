@@ -37,6 +37,8 @@ export class HomePage {
 
   fnIDarr: Array<number> = [];
   envData: any = [];
+  userName: string = "";
+
   constructor(
     public navCtrl: NavController,
     public loadingCtrl: LoadingController, private modalCtrl: ModalController, private events: Events,
@@ -113,6 +115,7 @@ export class HomePage {
     this.modeItemStyle = {
       'height': `${(htmlWidth - 30) / 2.3}px`
     };
+    this.userName = this.tools.getUserName();
     // this.fnDataSubscribe();
   }
 

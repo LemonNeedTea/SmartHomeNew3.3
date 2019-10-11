@@ -365,4 +365,12 @@ page-home {
     background: none !important;
   }
 
+  .username {
+    max-width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 35px;
+  }
+
 }
