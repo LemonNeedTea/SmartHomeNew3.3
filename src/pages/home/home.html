@@ -1,5 +1,5 @@
-<ion-header no-border>
-  <ion-toolbar transparent>
+<!-- <ion-haeader no-border> -->
+<!-- <ion-toolbar transparent>
     <button ion-button icon-only menuToggle>
       <ion-icon class="user"></ion-icon>
 
@@ -10,22 +10,36 @@
         <ion-icon name="ios-mic"></ion-icon>
       </button>
     </ion-buttons>
-  </ion-toolbar>
+  </ion-toolbar> -->
 
-</ion-header>
+<!-- </ion-header> -->
 
 <ion-content (ionScroll)="scrollEvent($event)">
+
   <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher> -->
 
   <div class="home-header">
+    <ion-toolbar transparent style="height: 80px;">
+      <button ion-button icon-only menuToggle style="font-size: 30px;color: #fff;">
+        fnzt
+        <ion-icon name="arrow-forward" style="font-size: 35px;margin-left: 5px;"></ion-icon>
+
+      </button>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="scan()" end style="color:white">
+          <ion-icon name="ios-mic" style="font-size: 30px;"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
     <div #homeHeaderContent class="home-header-content">
       <ion-row>
         <ion-col col-6 text-left class="col-left">
           <div class="city">{{weatherinfo.location}}</div>
           <p no-margin>{{weatherinfo.temperature}}°C | {{weatherinfo.cond_txt}}</p>
-          <p no-margin style="display: flex;align-items: center;" *ngIf="envData.length>0" (click)="goEnv()">环境参数&nbsp;
+          <p no-margin style="display: flex;align-items: center;" *ngIf="envData.length>0" (click)="goEnv()">
+            环境参数&nbsp;
             <ion-icon name="arrow-forward"></ion-icon>
           </p>
 
@@ -34,13 +48,14 @@
         <ion-col col-6 text-right class='col-left'>
         </ion-col>
       </ion-row>
-      <ion-row style="background-color:rgba(0, 0, 0, 0.45)">
+      <ion-row>
         <ion-col class='col-right'>
 
           <img src="../../assets/home/power.png" />功率:<span class="power">{{energyParamsData.power}}</span>kW
 
           &nbsp; <img src="../../assets/home/energy.png " />
-          日/月/年:{{energyParamsData.day?energyParamsData.day:0}} / {{energyParamsData.month?energyParamsData.month:0}} /
+          日/月/年:{{energyParamsData.day?energyParamsData.day:0}} / {{energyParamsData.month?energyParamsData.month:0}}
+          /
           {{energyParamsData.year?energyParamsData.year:0}}
 
         </ion-col>
@@ -61,10 +76,11 @@
       </ion-row>
     </div> -->
   </div>
-  <ion-list no-padding no-margin>
+  <ion-list no-padding no-margin style="margin-top: 40px;">
 
     <!-- <ion-item-group> -->
-    <ion-item-divider sticky no-padding style="background:white;height: 40px;">
+    <ion-item-divider sticky no-padding style="background: transparent;
+    height: 40px;">
       <ion-segment [(ngModel)]="homeType">
         <ion-segment-button value="mode">
           模式
@@ -76,7 +92,7 @@
     </ion-item-divider>
 
     <ion-item-sliding no-padding no-margin>
-      <ion-item no-padding no-margin style="">
+      <ion-item no-padding no-margin>
         <!-- {{homeType}} -->
 
         <div [ngSwitch]="homeType">
@@ -84,20 +100,26 @@
 
             <div class="mode-item mode-pic">
               <div class="drag">
-                <div class="mode-item-header">回家模式</div>
-                <div class="mode-item-footer">设置模式</div>
+                <div class="mode-item-header">离家模式</div>
+                <div class="mode-item-footer">执行</div>
               </div>
             </div>
             <div class="mode-item mode-pic2">
-              <div class="drag">dddd</div>
+              <div class="drag">
+                <div class="mode-item-header">回家模式</div>
+                <div class="mode-item-footer">执行</div>
+              </div>
 
             </div>
             <div class="mode-item mode-pic3">
-              <div class="drag">dddd</div>
+              <div class="drag">
+                <div class="mode-item-header">睡眠模式</div>
+                <div class="mode-item-footer">执行</div>
+              </div>
 
             </div>
 
-            <div class="home-main">
+            <!-- <div class="home-main">
 
               <ion-grid>
 
@@ -126,10 +148,10 @@
               </ion-grid>
 
 
-            </div>
+            </div> -->
           </div>
 
-          <div *ngSwitchCase="'setting'" class="my-list">
+          <div *ngSwitchCase="'setting'" class="my-list" padding>
             <!-- <ion-list class="my-list"> -->
             <ion-item (click)="goModePublicSetting()" no-padding>
               <div item-start class="start c5">

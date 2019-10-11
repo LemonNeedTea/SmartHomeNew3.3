@@ -15,9 +15,9 @@ import { SpeechHelperProvider } from '../../providers/tools/speechHelper'
   templateUrl: 'home.html'
 })
 export class HomePage {
-  @ViewChild(Header) header;
+  // @ViewChild(Header) header;
 
-  @ViewChild("homeHeaderContent") homeHeaderContent;
+  // @ViewChild("homeHeaderContent") homeHeaderContent;
 
   overview: any;
   workorder: any;
@@ -112,9 +112,9 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    let headerHeight = this.header._elementRef.nativeElement.clientHeight;
-    let height: number = Number(headerHeight) + 150;
-    this.el.nativeElement.querySelector('.scroll-content').style.paddingTop = `${height}px`;
+    // let headerHeight = this.header._elementRef.nativeElement.clientHeight;
+    // let height: number = Number(headerHeight) + 150;
+    // this.el.nativeElement.querySelector('.scroll-content').style.paddingTop = `${height}px`;
 
     // this.scan();
     this.loadListData().then(res => {
