@@ -29,7 +29,7 @@ export class HomePage {
   modeItemStyle = {};
   oneData: any = { ud: 0, um: 0, uy: 0 };
 
-  homeParams: any;
+  homeParams: any = [];
   energyParamsData: any = {};
 
 

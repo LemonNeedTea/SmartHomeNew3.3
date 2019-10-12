@@ -50,7 +50,7 @@
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col class='col-right'>
+        <ion-col class='col-right' *ngIf="homeParams.length>0">
 
           <img src="../../assets/home/power.png" />功率:<span class="power">{{energyParamsData.power}}</span>kW
 
