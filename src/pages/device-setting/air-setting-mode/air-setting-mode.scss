@@ -2,15 +2,18 @@ page-air-setting-mode {
   .toolbar-title {
     color: #fff;
   }
+
   .back-button {
     color: #fff !important;
   }
+
   .scroll-content {
     background-color: transparent;
   }
+
   .fixed-content {
     // background-color: transparent;
-    background-image: url(../../../assets/bg2.png);
+    background-image: url(../../../assets/air-bg.png);
     background-position: center top;
     background-size: cover;
     background-attachment: fixed;
@@ -20,20 +23,24 @@ page-air-setting-mode {
     -o-filter: blur(20px);
     filter: blur(20px);
   }
+
   ion-content {
     background: gray !important;
   }
+
   ion-footer {
     // border-top: 1px solid white;
     // border: 1 0;
     // border-left: none;
     // border-right: none;
   }
+
   .mode {
     text-align: center;
     height: 200px;
     // border-top: 1px dashed white;
     color: white;
+
     img {
       height: 48px;
       width: 48px;
@@ -41,9 +48,11 @@ page-air-setting-mode {
       border-radius: 100%;
       padding: 5px;
     }
+
     ion-row {
       height: 100%;
     }
+
     ion-col {
       display: flex;
       flex-direction: column;
@@ -52,12 +61,14 @@ page-air-setting-mode {
       height: 100% !important;
     }
   }
+
   .dismiss {
     text-align: center;
     font-size: 40px;
     color: #fff;
   }
-  .mode ion-row{
+
+  .mode ion-row {
     height: 100px !important;
   }
 }

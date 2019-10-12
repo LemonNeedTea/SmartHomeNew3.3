@@ -10,13 +10,10 @@ page-home {
   }
 
   .fixed-content {
-
-    background-image: url(../../assets/bg5.jpg);
+    background-image: url(../../assets/bg.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     margin-bottom: 0 !important;
-
-
   }
 
   .scroll-content {
@@ -302,6 +299,10 @@ page-home {
     background: url("../../assets/img/home/icon-mode/icon-mode-work.png") no-repeat;
   }
 
+  .icon-mode-getup {
+    background: url("../../assets/img/home/icon-mode/con-mode-getup.png") no-repeat;
+  }
+
   .mode-item {
     // background: url("../../assets/mode.jpg") no-repeat;
     background-size: 100% auto;
@@ -349,7 +350,6 @@ page-home {
     display: inline-block;
     width: 70px;
     height: 70px;
-
   }
 
   .mode-item-header {
@@ -388,5 +388,4 @@ page-home {
     text-overflow: ellipsis;
     height: 35px;
   }
-
 }
