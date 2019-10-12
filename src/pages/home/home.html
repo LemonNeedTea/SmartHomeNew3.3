@@ -20,7 +20,7 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher> -->
 
-  <div class="home-header">
+  <div class="home-header" #homeHeaderContent>
     <ion-toolbar transparent style="height: 80px;">
       <button ion-button icon-only menuToggle style="font-size: 30px;color: #fff;">
         <span class="username">{{userName}}</span>
@@ -34,7 +34,7 @@
         </button>
       </ion-buttons>
     </ion-toolbar>
-    <div #homeHeaderContent class="home-header-content">
+    <div class="home-header-content">
       <ion-row>
         <ion-col col-6 text-left class="col-left">
           <div class="city">{{weatherinfo.location}}</div>
@@ -80,8 +80,7 @@
   <ion-list no-padding no-margin style="margin-top: 40px;">
 
     <!-- <ion-item-group> -->
-    <ion-item-divider sticky no-padding style="background: transparent;
-    height: 40px;">
+    <ion-item-divider sticky no-padding #modeSegment class="mode-segment">
       <ion-segment [(ngModel)]="homeType">
         <ion-segment-button value="mode">
           模式

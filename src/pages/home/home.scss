@@ -388,4 +388,14 @@ page-home {
     text-overflow: ellipsis;
     height: 35px;
   }
+
+  .mode-segment {
+    // background: rgba(255, 255, 255, 0.6) !important;
+    // margin: 0 15px;
+    // width: auto;
+    // border-radius: 5px;
+    background: transparent;
+    transition: all .5s;
+    height: 40px;
+  }
 }

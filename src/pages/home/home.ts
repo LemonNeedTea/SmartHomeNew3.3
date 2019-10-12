@@ -17,7 +17,8 @@ import { SpeechHelperProvider } from '../../providers/tools/speechHelper'
 export class HomePage {
   // @ViewChild(Header) header;
 
-  // @ViewChild("homeHeaderContent") homeHeaderContent;
+  @ViewChild("homeHeaderContent") homeHeaderContent;
+  @ViewChild("modeSegment") modeSegment;
 
   overview: any;
   workorder: any;
@@ -204,17 +205,17 @@ export class HomePage {
 
   }
   scrollEvent(e) {
-    // if (e.scrollTop <= 100) {
-    //   this.header._elementRef.nativeElement.style.backgroundColor = `rgba(82,161,243,0)`;;
-    //   let opacity = e.scrollTop / 100;//设置滚动距离300的时候导航栏消失
+    let homeHeaderHeight = this.homeHeaderContent.nativeElement.clientHeight + 40;
+    // let homeHeader = document.getElementById("homeHeader").style.height; console.log(homeHeader);
 
-    //   let color = `rgba(82,161,243,${opacity})`;
-    //   this.homeHeaderContent.nativeElement.style.backgroundColor = color;
+    if (e.scrollTop >= homeHeaderHeight) {
+      this.modeSegment._elementRef.nativeElement.style.backgroundColor = `rgba(255, 255, 255, 0.8)`;
 
-    // } else {
-    //   this.header._elementRef.nativeElement.style.backgroundColor = `rgba(82,161,243,1)`;;
+    } else {
+      this.modeSegment._elementRef.nativeElement.style.backgroundColor = `transparent`;
 
-    // }
+
+    }
 
   }
   doRefresh(refresher) {
