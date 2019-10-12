@@ -373,6 +373,9 @@ export class DeviceRequestsProvider {
   getAirTypeParams(deviceID: number, typeCode: string) {
     return this.http.postMain("/EnergyAppData/GetAirTypeParams", { TypeCode: typeCode, DeviceID: deviceID });
   }
+  getTabsList() {
+    return this.http.postMain("/EnergyAppData/GetTabsList", {}, false);
+  }
 
 
 

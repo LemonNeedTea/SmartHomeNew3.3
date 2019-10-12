@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, Events, MenuController, Keyboard } from 'ionic-angular';
 import { TabsPage } from "../tabs/tabs";
-import { LoginRequestsProvider } from '../../providers/tools/requests';
+import { LoginRequestsProvider, DeviceRequestsProvider } from '../../providers/tools/requests';
 import { ToolsProvider } from '../../providers/tools/tools';
 
 
@@ -27,6 +27,7 @@ export class LoginPage {
     private navParams: NavParams,
     private toastCtrl: ToastController,
     private loginRequest: LoginRequestsProvider,
+    private deviceRequst: DeviceRequestsProvider,
     private events: Events,
     private menuCtrl: MenuController,
     private keyboard: Keyboard,
@@ -48,9 +49,8 @@ export class LoginPage {
 
   // }
   login() {
-    if(this.isEdit==false) return;
+    if (this.isEdit == false) return;
     this.isEdit = false;
-    console.log('sss')
     this.removeClass();
     let loginObj = document.getElementById('login');
 
@@ -60,10 +60,14 @@ export class LoginPage {
         this.loginRequest.login(this.username, this.password).then(res => {
           setTimeout(() => {
             loginObj.classList.add('verity');
-            setTimeout(() => {
-              this.navCtrl.setRoot(TabsPage);
+            this.deviceRequst.getTabsList().then((res: Array<any>) => {
+              console.log(res);
 
-            }, 1000);
+              this.navCtrl.setRoot(TabsPage, { Data: res });
+
+            });
+
+
 
           }, 1000);
         }, err => {

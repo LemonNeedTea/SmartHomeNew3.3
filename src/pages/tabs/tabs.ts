@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Events } from 'ionic-angular'
+import { Events, NavParams } from 'ionic-angular'
 
 import { MessagePage } from '../message/message';
 import { HomePage } from '../home/home';
@@ -15,42 +15,35 @@ import { JPush } from '@jiguang-ionic/jpush';
   selector: 'tabs'
 })
 export class TabsPage {
-  tabRoots: any;
+  tabRoots: any = [];
   interval: any;
+  deviceIndex: number;
+  messageIndex: number;
 
   constructor(private device: DeviceRequestsProvider,
+    private navParams: NavParams,
     private events: Events,
     private jpush: JPush) {
-    this.tabRoots = [
-      {
-        root: HomePage,
-        tabTitle: '首页',
-        tabIcon: 'home'
+    let params = this.navParams.get("Data");
+    // this.device.getTabsList().then((res: Array<any>) => {
+    this.tabRoots = params.map((r, index) => {
+      switch (r.F_Root) {
+        case 'HomePage': { r.F_Root = HomePage; break; }
+        case 'RoomPage': { r.F_Root = RoomPage; break; }
+        case 'DevicePage': { r.F_Root = DevicePage; break; }
+        case 'EnergyPage': { r.F_Root = EnergyPage; break; }
+        case 'MessagePage': { r.F_Root = MessagePage; break; }
       }
-      , {
-        root: RoomPage,
-        tabTitle: '房间',
-        tabIcon: 'photos'
+      if (r.F_Badge <= 0) {
+        r.F_Badge = null;
       }
-      , {
-        root: DevicePage,
-        tabTitle: '设备',
-        tabIcon: 'options',
-        tabBadge: 0,
-        tabBadgeStyle: 'danger'
+      if (r.F_Type === 'device') {
+        this.deviceIndex = index;
+      } else if (r.F_Type === 'message') {
+        this.messageIndex = index;
       }
-      , {
-        root: EnergyPage,
-        tabTitle: '用能',
-        tabIcon: 'stats'
-      }, {
-        root: MessagePage,
-        tabTitle: '消息',
-        tabIcon: 'chatboxes',
-        tabBadge: 0,
-        tabBadgeStyle: 'danger'
-      }
-    ];
+      return r;
+    });
     this.getMessageNum();
     this.getDeviceOpenNum();
   }
@@ -59,7 +52,7 @@ export class TabsPage {
       this.getMessageNum();
     }, 10000);
     this.events.subscribe("FnData:MessageNum", (res: any) => {
-      this.tabRoots[4].tabBadge = res;
+      this.tabRoots[this.messageIndex].F_Badge = res || null;
       this.jpush.setApplicationIconBadgeNumber(Number(res));
     });
   }
@@ -68,7 +61,7 @@ export class TabsPage {
   }
   getMessageNum() {
     this.device.getAlarmDataList(false).then((res: any) => {
-      this.tabRoots[4].tabBadge = res.length;
+      this.tabRoots[this.messageIndex].F_Badge = res.length || null;
       this.jpush.setApplicationIconBadgeNumber(Number(res.length));
       this.events.publish("data:messageList", res);
     })
@@ -78,9 +71,9 @@ export class TabsPage {
     // });
   }
   private getDeviceOpenNum() {
-    this.tabRoots[2].tabBadge = Variable.deviceNum;
+    this.tabRoots[this.deviceIndex].F_Badge = Variable.deviceNum || null;
     this.events.subscribe("FnData:DeviceOpenNum", (res: any) => {
-      this.tabRoots[2].tabBadge = res;
+      this.tabRoots[this.deviceIndex].F_Badge = res || null;
     });
   }
 }
