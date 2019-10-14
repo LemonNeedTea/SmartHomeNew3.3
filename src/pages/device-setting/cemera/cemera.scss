@@ -4,6 +4,9 @@ page-cemera {
     position: absolute;
     z-index: -1;
   }
+  .iconButton:active {
+    color: gray;
+  }
   .iconButton {
     font-size: 30px;
     color: #fff;
@@ -50,7 +53,7 @@ page-cemera {
     cursor: pointer;
   }
 
-  .sector .box:hover {
+  .sector .box:active {
     background: #eee;
   }
 
