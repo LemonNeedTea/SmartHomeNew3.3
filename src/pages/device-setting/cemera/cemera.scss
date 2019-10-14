@@ -1,3 +1,17 @@
 page-cemera {
-
+  .cvs {
+    background-color: #000;
+    position: absolute;
+    z-index: -1;
+  }
+  .iconButton {
+    font-size: 30px;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+  }
+  #divFresh {
+    position: relative;
+  }
 }

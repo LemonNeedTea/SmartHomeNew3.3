@@ -11,5 +11,8 @@
 </ion-header>
 
 <ion-content>
-  <canvas #cvs1 class="cvs" id="cvs1" width="375" height="320"></canvas>
+  <canvas #cvs1 class="cvs" id='cvs2'></canvas>
+  <div #divFresh id="divFresh">
+    <ion-icon name="refresh" (click)="startWebSocket()" class="iconButton"></ion-icon>
+  </div>
 </ion-content>
