@@ -205,17 +205,16 @@ export class HomePage {
 
   }
   scrollEvent(e) {
-    let homeHeaderHeight = this.homeHeaderContent.nativeElement.clientHeight + 40;
-    // let homeHeader = document.getElementById("homeHeader").style.height; console.log(homeHeader);
+    // let homeHeaderHeight = this.homeHeaderContent.nativeElement.clientHeight + 40;
 
-    if (e.scrollTop >= homeHeaderHeight) {
-      this.modeSegment._elementRef.nativeElement.style.backgroundColor = `rgba(255, 255, 255, 0.8)`;
+    // if (e.scrollTop >= homeHeaderHeight) {
+    //   this.modeSegment._elementRef.nativeElement.style.backgroundColor = `rgba(255, 255, 255, 0.8)`;
 
-    } else {
-      this.modeSegment._elementRef.nativeElement.style.backgroundColor = `transparent`;
+    // } else {
+    //   this.modeSegment._elementRef.nativeElement.style.backgroundColor = `transparent`;
 
 
-    }
+    // }
 
   }
   doRefresh(refresher) {

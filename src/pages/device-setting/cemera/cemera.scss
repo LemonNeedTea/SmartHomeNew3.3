@@ -74,7 +74,7 @@ page-cemera {
   }
 
   .sector .box:active {
-    background: #eee;
+    background: linear-gradient(#eee, transparent);
   }
 
   .sector .s1 {
@@ -99,9 +99,10 @@ page-cemera {
     position: absolute;
     left: 54px;
     top: 54px;
-    border: 1px solid gray;
+    // border: 1px solid gray;
     border-radius: 50%;
-    background: white;
+    background: #eee;
+    z-index: 11;
   }
   .setting-more {
     // height: 500px;

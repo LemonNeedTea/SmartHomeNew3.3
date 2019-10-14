@@ -153,7 +153,7 @@ export class CemeraPage {
           text: '确定',
           handler: data => {
             if (data.num) {
-              this.setCemera(8, data.num);
+              this.setCemera(8, data.num * 1);
               // logged in!
             } else {
               // invalid login
