@@ -15,4 +15,59 @@
   <div #divFresh id="divFresh">
     <ion-icon name="refresh" (click)="startWebSocket()" class="iconButton"></ion-icon>
   </div>
+
+  <div class="sector">
+    <div class="box s1" (touchstart)="setCemera(0,1)" (touchend)="setCemera(0,0)"></div>
+    <div class="box s2" (touchstart)="setCemera(3,1)" (touchend)="setCemera(3,0)"></div>
+    <div class="box s3" (touchstart)="setCemera(1,1)" (touchend)="setCemera(1,0)"></div>
+    <div class="box s4" (touchstart)="setCemera(2,1)" (touchend)="setCemera(2,0)"></div>
+    <div class="center"></div>
+  </div>
+
+  <ion-grid class="setting-more">
+    <ion-row>
+      <ion-col col-3 class="label">
+        调焦：
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button (touchstart)="setCemera(4,1)" (touchend)="setCemera(4,0)">放大</button>
+
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button (touchstart)="setCemera(5,1)" (touchend)="setCemera(5,0)">缩小</button>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-3 class="label">
+        聚焦：
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button (touchstart)="setCemera(6,1)" (touchend)="setCemera(6,0)">远</button>
+
+
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button (touchstart)="setCemera(7,1)" (touchend)="setCemera(7,0)">近</button>
+
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-3 class="label">
+        预置点:
+
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button (click)="presentPrompt()">设置</button>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+  <div>
+
+
+
+  </div>
 </ion-content>

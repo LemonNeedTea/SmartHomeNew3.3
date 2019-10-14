@@ -14,4 +14,78 @@ page-cemera {
   #divFresh {
     position: relative;
   }
+  .sector {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 30px auto;
+    border: 1px solid gray;
+    border-radius: 50%;
+    // background: #4a4a4a;
+  }
+
+  .sector .box {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    clip: rect(0px, 99px, 99px, 0);
+  }
+  .sector .box::after {
+    content: "";
+    display: inline-block;
+    height: 5px;
+    width: 5px;
+    background: gray;
+    border-radius: 50%;
+    position: absolute;
+    left: 45px;
+    top: 45px;
+  }
+
+  .sector .box,
+  .sector .center {
+    transition: 0.5s;
+    // background: #5e5e5e;
+    cursor: pointer;
+  }
+
+  .sector .box:hover {
+    background: #eee;
+  }
+
+  .sector .s1 {
+    transform: rotate(45deg);
+  }
+
+  .sector .s2 {
+    transform: rotate(135deg);
+  }
+
+  .sector .s3 {
+    transform: rotate(-135deg);
+  }
+
+  .sector .s4 {
+    transform: rotate(-45deg);
+  }
+
+  .sector .center {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    left: 54px;
+    top: 54px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    background: white;
+  }
+  .setting-more .button {
+    width: 64px !important;
+  }
+  .setting-more .label {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+  }
 }

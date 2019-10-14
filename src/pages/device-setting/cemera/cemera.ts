@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the CemeraPage page.
@@ -27,7 +27,8 @@ export class CemeraPage {
   _lastMsg = "";
   _lastColor = null;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private alertCtrl: AlertController) {
 
 
 
@@ -114,6 +115,54 @@ export class CemeraPage {
 
   ionViewDidLeave() {
     this.ws.close();
+  }
+  setCemera(type, data) {
+    let params = {
+      Type: type,
+      Data: data
+    }
+
+    this.sendMessage(params);
+  }
+  sendMessage(message: any) {
+    console.log(message);
+
+    this.ws.send(JSON.stringify(message));
+  }
+
+  presentPrompt() {
+    let alert = this.alertCtrl.create({
+      title: '预置点设置',
+      inputs: [
+        {
+          name: 'num',
+          placeholder: '序号',
+          type: 'number'
+        }
+      ],
+      buttons: [
+        {
+          text: '取消',
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: '确定',
+          handler: data => {
+            if (data.num) {
+              this.setCemera(8, data.num);
+              // logged in!
+            } else {
+              // invalid login
+              return false;
+            }
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 
