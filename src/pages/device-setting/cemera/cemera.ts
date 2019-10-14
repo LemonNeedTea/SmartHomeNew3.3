@@ -15,7 +15,9 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 })
 export class CemeraPage {
   @ViewChild("cvs1") cvs1;
-  @ViewChild("divFresh") divFresh;
+  @ViewChild("ionContent") ionContent;
+
+
 
 
   id: number;
@@ -36,19 +38,18 @@ export class CemeraPage {
 
   ionViewDidLoad() {
     let htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+    let htmlHeight = document.documentElement.clientHeight || document.body.clientHeight;
 
     this._cvsWidth = htmlWidth;
 
     this._cvsHeight = htmlWidth * 3 / 4;
 
-    console.log(this.cvs1.nativeElement.style.width);
-
     this.cvs1.nativeElement.width = this._cvsWidth;
     this.cvs1.nativeElement.height = this._cvsHeight;
 
-
-
     document.getElementById("divFresh").style.height = this._cvsHeight + "px";
+
+    document.getElementById("divSetting").style.height = (htmlHeight - this._cvsHeight) + "px";
 
     this._context = this.cvs1.nativeElement.getContext('2d');
     this.id = this.navParams.get("id");
