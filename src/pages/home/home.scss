@@ -287,7 +287,12 @@ page-home {
     background: url("../../assets/img/home/icon-mode/icon-mode-leavehome.png") no-repeat;
   }
 
-  .icon-mode-returnhome {
+
+  .icon-mode-returnhome,
+
+  .icon-mode-templeave,
+  ,
+  .icon-mode-meeting-leave {
     background: url("../../assets/img/home/icon-mode/icon-mode-returnhome.png") no-repeat;
   }
 
@@ -299,7 +304,8 @@ page-home {
     background: url("../../assets/img/home/icon-mode/icon-mode-work.png") no-repeat;
   }
 
-  .icon-mode-getup {
+  .icon-mode-getup,
+  .icon-mode-cinema {
     background: url("../../assets/img/home/icon-mode/con-mode-getup.png") no-repeat;
   }
 
