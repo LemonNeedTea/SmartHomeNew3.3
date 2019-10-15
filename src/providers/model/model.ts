@@ -147,3 +147,60 @@ export class airSettingTimerParams {
     public speed: string;
     public temp: string;
 }
+/*
+*功能码4：离家模式闪烁演示功能配置
+*/
+export class LeaveHomeModeLightTwinkParams {
+    public code: number = 4;
+    public timerOpen: number;
+    public runtime: number;
+    public lightIndex: Array<any>;
+}
+/*
+*功能码5：离家模式窗帘自动开启关闭演示功能配置
+*/
+export class LeaveHomeModeCurtain {
+    public code: number = 5;
+    public timerOpen: number;
+    public runtime: number;
+}
+
+/*
+*功能码6：睡眠模式灯光自动关闭演示功能配置
+*/
+export class SleepModeLight {
+    public code: number = 6;
+    public timerOpen: number;
+    public runtime: number;
+}
+/*
+*功能码7：光导室外光/有源光的照明效果演示配置参数
+*/
+export class OutsideLight {
+    public code: number = 7;
+    public timerOpen: number;
+    public maxNum: Array<any>;
+    public minNum: Array<any>;
+}
+
+/*
+*功能码8：室内照明关联照度效果演示配置参数
+*/
+export class InsideLight {
+    public code: number = 8;
+    public timerOpen: number;
+    public maxNum: Array<any>;
+    public minNum: Array<any>;
+    public lightIndex: Array<any>;
+}
+
+/*
+*功能码9：人体感应关联照明演示配置参数
+*/
+export class BodyInduction {
+    public code: number = 9;
+    public timerOpen: number;
+    public lightIndex1: Array<any>;
+    public lightIndex2: Array<any>;
+    public lightIndex3: Array<any>;
+}

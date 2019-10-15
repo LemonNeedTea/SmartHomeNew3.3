@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { Variable } from '../../../../providers/model/variable';
 import { ToolsProvider } from '../../../../providers/tools/tools';
+import { SleepModeLight } from '../../../../providers/model/model';
 
 /**
  * Generated class for the SleepModeLightPage page.
@@ -16,6 +18,8 @@ import { ToolsProvider } from '../../../../providers/tools/tools';
 })
 export class SleepModeLightPage {
   title: string;
+  runtime: number;
+  timerOpen: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private viewCtrl: ViewController,
@@ -31,5 +35,31 @@ export class SleepModeLightPage {
     this.viewCtrl.dismiss();
   }
   complate() {
+    if (this.checkParam()) {
+
+      let params = this.getParams();
+      Variable.socketObject.setTimer(params);
+      this.dismiss();
+    }
+
+  }
+  getParams() {
+    let params = new SleepModeLight();//注意组装顺序
+    params.timerOpen = Number(this.timerOpen);
+    params.runtime = Number(this.runtime);
+    return params;
+  }
+  checkParam(): boolean {
+    if (this.runtime > 240) {
+      this.tools.presentToast("闪烁间隔不能超过4小时");
+      return false;
+    }
+
+    return true;
+  }
+  getData() {
+    let fnData = Variable.GetFnData('73');
+    this.timerOpen = Number(fnData.F739);
+    this.runtime = fnData.F7310;
   }
 }
