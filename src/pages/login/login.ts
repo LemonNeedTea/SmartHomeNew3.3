@@ -61,7 +61,6 @@ export class LoginPage {
           setTimeout(() => {
             loginObj.classList.add('verity');
             this.deviceRequst.getTabsList().then((res: Array<any>) => {
-              console.log(res);
 
               this.navCtrl.setRoot(TabsPage, { Data: res });
 

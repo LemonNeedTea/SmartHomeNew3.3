@@ -322,9 +322,12 @@ export class SocketHelpProvider {
      * 私有函数
      */
     private getAuto(data: any) {
-        let auto = data['0'][0] == '0' ? true : false;
-        Variable.isAuto = auto;
-        this.events.publish("FnData:isAuto", auto);
+        if (data['0']) {
+            let auto = data['0'][0] == '0' ? true : false;
+            Variable.isAuto = auto;
+            this.events.publish("FnData:isAuto", auto);
+        }
+
         // console.log("auto",auto);
         // if(auto){
         //     this.tools.presentToast("当前位手动模式，设备不可控");

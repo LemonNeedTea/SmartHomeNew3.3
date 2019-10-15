@@ -274,9 +274,16 @@ page-home {
   }
 
   .list-ios>.item-block:last-child,
-  .list-ios>.item-wrapper:last-child .item-block {
+  .list-ios>.item-wrapper:last-child .item-block,
+  .item-md,
+  .list-md {
     border-bottom: none;
-    background: rgba(0, 0, 0, 0);
+    background: transparent !important;
+  }
+
+  .list-md ion-item-sliding {
+    background-color: transparent !important;
+
   }
 
   .list-ios ion-item-sliding {
@@ -289,9 +296,7 @@ page-home {
 
 
   .icon-mode-returnhome,
-
   .icon-mode-templeave,
-  ,
   .icon-mode-meeting-leave {
     background: url("../../assets/img/home/icon-mode/icon-mode-returnhome.png") no-repeat;
   }
