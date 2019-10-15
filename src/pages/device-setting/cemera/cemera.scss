@@ -2,31 +2,38 @@ page-cemera {
   .back-button {
     color: #fff;
   }
+
   .toolbar-title {
     color: #fff;
   }
+
   ion-content {
     -webkit-overflow-scrolling: unset !important;
   }
+
   .fixed-content,
   .scroll-content {
     margin-top: 0 !important;
     -webkit-overflow-scrolling: unset !important;
   }
+
   .home-header {
     width: 100%;
     height: 100%;
     overflow-y: auto;
     -webkit-overflow-scrolling: unset;
   }
+
   .cvs {
     background-color: #000;
     position: absolute;
     z-index: -1;
   }
+
   .iconButton:active {
     color: gray;
   }
+
   .iconButton {
     font-size: 30px;
     color: #fff;
@@ -34,9 +41,11 @@ page-cemera {
     bottom: 0;
     right: 10px;
   }
+
   #divFresh {
     position: relative;
   }
+
   .sector {
     position: relative;
     width: 200px;
@@ -54,6 +63,7 @@ page-cemera {
     border-radius: 50%;
     clip: rect(0px, 99px, 99px, 0);
   }
+
   .sector .box::after {
     content: "";
     display: inline-block;
@@ -74,7 +84,7 @@ page-cemera {
   }
 
   .sector .box:active {
-    background: linear-gradient(#eee, transparent);
+    background: linear-gradient(transparent, #eee);
   }
 
   .sector .s1 {
@@ -104,18 +114,22 @@ page-cemera {
     background: #eee;
     z-index: 11;
   }
+
   .setting-more {
     // height: 500px;
   }
+
   .setting-more .button {
     width: 90% !important;
     height: 100%;
   }
+
   .setting-more .label {
     font-size: 16px;
     display: flex;
     align-items: center;
   }
+
   #divSetting {
     overflow: scroll;
   }
