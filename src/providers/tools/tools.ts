@@ -33,6 +33,14 @@ export class ToolsProvider {
       return '';
     }
   }
+  getAccountsetname() {
+    var userinfo = this.storage.get(this.config.userInfoSotrageName);
+    if (userinfo && userinfo['accountsetname']) {
+      return userinfo['accountsetname'];
+    } else {
+      return '';
+    }
+  }
   setUserInfo(data) {
     this.storage.set(this.config.userInfoSotrageName, data);
   }

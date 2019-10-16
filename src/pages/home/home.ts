@@ -116,7 +116,7 @@ export class HomePage {
     this.modeItemStyle = {
       'height': `${(htmlWidth - 30) / 2.3}px`
     };
-    this.userName = this.tools.getUserName();
+    this.userName = this.tools.getAccountsetname();
     // this.fnDataSubscribe();
   }
 
