@@ -99,14 +99,15 @@ export class SocketHelpProvider {
         }
 
     }
-    setTimer(data: any, name: string = "定时") {
+    // setTimer(data: any, name: string = "定时") {
+    setTimer(data: any, name: string = "定时", fnID: number = 41) {
         this.presentLoading(name);
         let controlData = this.tools.getSendControl(data);
         var param = {
             Type: 'set',
             UserName: this.tools.getUserName(), //用户名
             MonitorID: 1,
-            FnID: 41,
+            FnID: fnID,
             controlData: controlData
         };
         console.log(param);
@@ -266,7 +267,7 @@ export class SocketHelpProvider {
                             {
                                 break;
                             }
-                        case 41://模式和定时设置
+                        case 41: case 61://模式和定时设置
                             {
                                 let controlData = Variable.controlDevice;
                                 if (!data.Result) {

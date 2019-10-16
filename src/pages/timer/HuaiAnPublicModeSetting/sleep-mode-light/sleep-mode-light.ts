@@ -26,7 +26,7 @@ export class SleepModeLightPage {
     private tools: ToolsProvider) {
     let data = this.navParams.get("Data");
     this.title = data["F_Name"];
-    // this.getData();
+    this.getData();
   }
 
   ionViewDidLoad() {
@@ -38,7 +38,7 @@ export class SleepModeLightPage {
     if (this.checkParam()) {
 
       let params = this.getParams();
-      Variable.socketObject.setTimer(params);
+      Variable.socketObject.setTimer(params, '设置', 61);
       this.dismiss();
     }
 
