@@ -6,11 +6,13 @@ page-device {
     display: flex;
 
     .cate_left {
-      width: 95px;
+      width: 30%;
       height: 100%;
       border-right: 10px solid #eee;
       overflow-y: auto;
       color: #666;
+      max-width: 250px;
+      min-width: 95px;
 
       .item-selected {
         border-left: 3px;
