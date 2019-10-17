@@ -130,6 +130,23 @@ export class SocketHelpProvider {
         //     type: 'air'
         // };
     }
+    setCurtain(data: any, MonitorID: number, fnID: number) {
+        this.presentLoading("");
+        // let controlData = this.tools.getSendControl(data);
+        var param = {
+            Type: 'set',
+            UserName: this.tools.getUserName(), //用户名
+            FnID: fnID,
+            MonitorID: MonitorID,
+            controlData: data
+        };
+        console.log(param);
+        this.socket.sendMessage(param);
+        Variable.controlDevice = {
+            name: '',
+            type: 'curtain'
+        };
+    }
     sendMessage(monitorID: number, fnID: number, data: string) {
         this.presentLoading("");
         // let controlData = this.tools.getSendControl(data);
@@ -276,8 +293,8 @@ export class SocketHelpProvider {
                                     this.dismissLoading();
                                 } else {
                                     if (controlData) {
-                                        if (controlData.type === 'model') {
-
+                                        if (controlData.type === 'model' || controlData.type === 'curtain') {
+                                            Variable.controlDevice = null;
 
                                         } else {
                                             this.dismissLoading();
