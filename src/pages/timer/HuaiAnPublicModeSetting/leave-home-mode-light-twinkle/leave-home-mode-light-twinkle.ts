@@ -49,7 +49,6 @@ export class LeaveHomeModeLightTwinklePage {
     let params = new LeaveHomeModeLightTwinkParams();//注意组装顺序
     params.timerOpen = Number(this.timerOpen);
     params.runtime = Number(this.runtime);
-    debugger;
     params.lightIndex = this.getTwoValue(this.lightIndex);
     return params;
   }
