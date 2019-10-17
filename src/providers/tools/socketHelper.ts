@@ -293,10 +293,12 @@ export class SocketHelpProvider {
                                     this.dismissLoading();
                                 } else {
                                     if (controlData) {
-                                        if (controlData.type === 'model' || controlData.type === 'curtain') {
-                                            Variable.controlDevice = null;
+                                        if (controlData.type === 'model') {
 
-                                        } else {
+                                        } else if (controlData.type === 'curtain') {
+                                            Variable.controlDevice = null;
+                                        }
+                                        else {
                                             this.dismissLoading();
                                         }
                                     } else {
