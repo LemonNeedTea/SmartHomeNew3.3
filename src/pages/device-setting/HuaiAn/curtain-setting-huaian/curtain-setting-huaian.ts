@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 import { Variable } from '../../../../providers/model/variable';
 import { DeviceRequestsProvider } from '../../../../providers/tools/requests'
-import { CurtainHuaiAn } from '../../../../providers/model/model';
 
 /**
  * Generated class for the CurtainSettingHuaianPage page.
