@@ -279,6 +279,10 @@ export class SocketHelpProvider {
             case 'set':
                 {
                     console.log(data);
+                    if (!data.Result) {
+                        this.tools.presentToast(data.Msg);
+                        this.dismissLoading();
+                    }
                     switch (data.FnID) {
                         case 40://设备设置
                             {
@@ -288,9 +292,7 @@ export class SocketHelpProvider {
                             {
                                 let controlData = Variable.controlDevice;
                                 if (!data.Result) {
-                                    this.tools.presentToast(data.Msg);
                                     this.speechDevice(controlData, false);
-                                    this.dismissLoading();
                                 } else {
                                     if (controlData) {
                                         if (controlData.type === 'model') {

@@ -54,7 +54,7 @@ export class CurtainSettingHuaianPage {
 
       if (this.setInfo) {
         if (kaidu == this.setInfo.kaidu && state == this.setInfo.state) {
-          debugger;
+          // debugger;
 
           this.state = state;
           this.saturation = kaidu;
