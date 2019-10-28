@@ -26,6 +26,8 @@ export class RoomPage {
   roomResultData: any = {};
   stateAir: object = {};
   private isFirst = true;
+  roomImages: any = [];
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private device: DeviceRequestsProvider,
     private events: Events) {
     this.loadListData().then(res => {
@@ -39,6 +41,7 @@ export class RoomPage {
         this.floors = res["floors"];
         this.rooms = res["rooms"];
         this.floorAndRoomArr = res["floorAndRoomArr"];
+        this.roomImages = res["roomImages"];
 
         this.floors.forEach(element => {
           this.floorStartNumArr[element.F_ID] = 0;
