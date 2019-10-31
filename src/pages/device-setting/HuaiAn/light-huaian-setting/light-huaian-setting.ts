@@ -31,7 +31,7 @@ export class LightHuaianSettingPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.colorPickerWidth = window.innerWidth - 20;
 
-    this.colorPickerHeight = this.colorPickerWidth * 3 / 4;
+    this.colorPickerHeight = this.colorPickerWidth / 2;
     this.colorPickerBorderRadius = 5;
   }
   // 颜色选择器中事件，传递出来的值。
