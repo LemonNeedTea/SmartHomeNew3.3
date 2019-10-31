@@ -1,0 +1,8 @@
+<!-- Generated template for the ColorPickerComponent component -->
+<div [ngStyle]="{'position': 'relative', 'height': height+'px', 'overflow': 'hidden'}">
+  <canvas width="{{width}}" height="{{height}}" id="canvas_picker" [ngStyle]="{'border-radius': borderRadius + 'px'}"
+    (click)="getOffersetInfo($event)"></canvas>
+  <p
+    [ngStyle]="{'position': 'absolute', 'left': markX + 'px', 'top': markY + 'px', 'width': '20px', 'height': '20px', 'border-radius': '50%', 'background': '#fff', 'border': '2px solid #555' }">
+  </p>
+</div>

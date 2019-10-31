@@ -62,7 +62,7 @@ export class CemeraPage {
       this.ws.close();
       this.ws = null;
     }
-    this.ws = new WebSocket("ws://192.168.4.113:9999");
+    this.ws = new WebSocket("ws://223.112.4.23:9999");
     this.ws.onmessage = (e) => {
       this.onMessage(e);
     };
