@@ -78,7 +78,7 @@ export class SocketHelpProvider {
     }
     private speechDevice(controlData: any, success: boolean = true) {
         let statestr = "";
-        if (controlData.speech) {
+        if (controlData && controlData.speech) {
             if (controlData.type === 'model') {
                 statestr = "打开";
             } else {

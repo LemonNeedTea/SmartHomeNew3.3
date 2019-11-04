@@ -62,12 +62,17 @@ export class ColorPickerComponent implements OnInit {
     var G = imgData[1];
     var B = imgData[2];
 
-    console.log('R=' + R + '' + 'G=' + G + '' + 'B=' + B, 'rgb');
+    // console.log('R=' + R + '' + 'G=' + G + '' + 'B=' + B, 'rgb');
     // 转换为16进制字符串
     this.rgbString = this.gbToHex(R, G, B);
-    console.log(this.rgbString);
+    // console.log(this.rgbString);
+    let result = {
+      r: R,
+      g: G,
+      b: B
+    }
 
-    this.colorPickerClick.emit({ color: this.rgbString });
+    this.colorPickerClick.emit(result);
   }
   gbToHex(R, G, B) {
     return this.toHex(R) + this.toHex(G) + this.toHex(B);

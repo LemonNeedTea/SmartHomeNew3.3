@@ -17,7 +17,7 @@
         <div ion-text color='primary' *ngIf="state">已打开
         </div>
       </ion-label>
-      <ion-toggle [(ngModel)]="state" (ngModelChange)="setDeviceState(state)" [disabled]="auto"></ion-toggle>
+      <ion-toggle [(ngModel)]="state" (ngModelChange)="setDeviceState(state)"></ion-toggle>
     </ion-item>
 
   </ion-list>
@@ -25,8 +25,7 @@
 
     <my-title name="亮度调节"></my-title>
     <!-- <ion-item> -->
-    <ion-range min="20" max="80" step="1" [(ngModel)]="brightness" (ngModelChange)="brightnessChange(brightness)"
-      max='3' min='1'>
+    <ion-range min="0" max="10" step="1" [(ngModel)]="brightness" (ngModelChange)="brightnessChange(brightness)">
 
 
       <ion-label range-left>暗</ion-label>
@@ -39,7 +38,7 @@
     <my-title name="色调调节"></my-title>
     <ion-range step="1" [(ngModel)]="brightness1" max='3' min='1' (ngModelChange)="colorChange(brightness1)">
       <ion-label range-left>暖</ion-label>
-      <ion-label range-right>冷</ion-label>
+      <ion-label range-right>白</ion-label>
     </ion-range>
   </ion-list>
   <ion-list>
@@ -48,7 +47,6 @@
       <color-picker [height]="colorPickerHeight" [width]="colorPickerWidth" [borderRadius]="colorPickerBorderRadius"
         (colorPickerClick)="colorPickerFun($event)"></color-picker>
       <p [ngStyle]="{'width': '10px', 'height': '10px', 'border-radius': '50%', 'background': colorPickerValue}"></p>
-      <p>color: {{colorPickerValue}}</p>
     </div>
   </ion-list>
 
