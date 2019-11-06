@@ -130,8 +130,8 @@ export class SocketHelpProvider {
         //     type: 'air'
         // };
     }
-    setCurtain(data: any, MonitorID: number, fnID: number) {
-        this.presentLoading("");
+    setCurtain(data: any, MonitorID: number, fnID: number, isLoading: boolean = true) {
+        !isLoading || this.presentLoading("");
         // let controlData = this.tools.getSendControl(data);
         var param = {
             Type: 'set',
@@ -252,8 +252,8 @@ export class SocketHelpProvider {
     }
     socketMessageHandle(data: any) {
 
-        // if (data.FnID == '3')
-        console.log(data);
+        // if (data.FnID == '72')
+        //     console.log(data);
         switch (data.Type) {
             case 'state': {
                 let dealData = data.Data;
@@ -379,7 +379,7 @@ export class SocketHelpProvider {
     }
     private checkDeviceComplateState(dealData: any) {
         let controlData = Variable.controlDevice;
-        if (controlData) {
+        if (controlData && controlData.state != null && controlData.id != null) {
             if (controlData.state == dealData[controlData.id][0]) {
                 this.dismissLoading();
                 this.speechDevice(controlData);

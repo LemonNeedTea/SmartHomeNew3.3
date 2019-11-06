@@ -90,9 +90,32 @@ export class LightHuaianSettingPage {
 
   ionViewDidLoad() {
   }
+  setInfo: any = null;
   getLightState(data: any) {
-    this.brightness1 = data[this.deviceFnData.SeWenFnCode];//色温
-    this.brightness = data[this.deviceFnData.LiangDuFnCode];//色温
+    if (data) {
+      let color = data[this.deviceFnData.SeWenFnCode];//色温
+      let brightness = data[this.deviceFnData.LiangDuFnCode];//亮度
+      if (this.setInfo) {
+        if (this.setInfo.type == 'color') {
+          if (this.setInfo.data == color) {
+            this.brightness1 = color;//色温
+            this.setInfo = null;
+
+          }
+        } else if (this.setInfo.type == 'brightness') {
+          if (this.setInfo.data == brightness) {
+            this.brightness = brightness;//色温
+            this.setInfo = null;
+
+          }
+        }
+      } else {
+        this.brightness1 = color;//色温
+        this.brightness = brightness;//亮度
+      }
+
+    }
+
     // console.log(data);
 
   }
@@ -114,16 +137,25 @@ export class LightHuaianSettingPage {
   brightnessChange(data: any) {
     let id = 2;
     this.setLight(id, this.brightness);
+    this.setInfo = {
+      type: 'brightness',
+      data: this.brightness
+    };
 
   }
   colorChange(data: any) {
     let id = 1;
     this.setLight(id, this.brightness1);
+    this.setInfo = {
+      type: 'color',
+      data: this.brightness1
+    };
   }
   setLight(id: number, value: number) {
     let data = `3,${this.deviceFnData.SetCode},${id},${value}`;//42 主机标号 模式 参数
     console.log(data);
-    Variable.socketObject.setAir(data, 1, 61);
+    Variable.socketObject.setCurtain(data, 1, 61, false);
+
   }
 
 }

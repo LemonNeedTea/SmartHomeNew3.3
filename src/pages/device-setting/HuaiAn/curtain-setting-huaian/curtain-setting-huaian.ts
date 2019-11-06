@@ -49,8 +49,8 @@ export class CurtainSettingHuaianPage {
   }
   getDeviceState(data: any) {
     if (data) {
-      let state = data.F728;
-      let kaidu = data.F727;
+      let state = data.F7210;
+      let kaidu = data.F729;
 
       if (this.setInfo) {
         if (kaidu == this.setInfo.kaidu && state == this.setInfo.state) {
@@ -84,7 +84,7 @@ export class CurtainSettingHuaianPage {
       kaidu: kaidu,
       state: state
     };
-    Variable.socketObject.setCurtain(`10,${kaidu},${state}`, 1, 61);
+    Variable.socketObject.setCurtain(`10,${kaidu},${state}`, 1, 61, false);
 
   }
 
@@ -96,6 +96,9 @@ export class CurtainSettingHuaianPage {
 
   timerObj: any;
   rangeChange() {
+    // console.log(this.saturation);
+    // this.setDeviceState(this.saturation, 1);
+
     if (!this.timerObj) {
       this.timerObj = setTimeout(() => {
         // console.log(this.saturation);
