@@ -6,42 +6,42 @@
 -->
 <ion-header>
 
-  <ion-navbar color='primary'>
-    <ion-title>{{name}}</ion-title>
-  </ion-navbar>
+    <ion-navbar color='primary'>
+        <ion-title>{{name}}</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <div class="curtain-img" padding>
-    <div>
-      <img src="../../../assets/img/home/icon-devicesetting/curtain-pic.png" float-left>
-      <img src="../../../assets/img/home/icon-devicesetting/curtain-pic.png" float-right>
+    <div class="curtain-img" padding>
+        <div>
+            <img src="../../../assets/img/home/icon-devicesetting/curtain-pic.png" float-left>
+            <img src="../../../assets/img/home/icon-devicesetting/curtain-pic.png" float-right>
+        </div>
     </div>
-  </div>
-  <my-title name="设置"></my-title>
-  <ion-badge item-end>{{saturation}}</ion-badge>
-  <div>
+    <my-title name="设置"></my-title>
+    <ion-badge item-end>{{saturation}}</ion-badge>
+    <div>
 
 
-    <ion-range min="0" max="100" step=10 [(ngModel)]="saturation" pin="true" (ngModelChange)="rangeChange()">
-      <ion-label range-left>0</ion-label>
-      <ion-label range-right>100</ion-label>
-    </ion-range>
-  </div>
-  <ion-grid margin-top>
-    <ion-row>
-      <ion-col text-center>
-        <button ion-button outline (click)="setDeviceState(100,1)" [disabled]="auto"><span>打开</span></button>
-      </ion-col>
-      <ion-col text-center>
-        <button ion-button outline (click)="setDeviceState(saturation,0)" [disabled]="auto"><span>停止</span></button>
-      </ion-col>
-      <ion-col text-center>
-        <button ion-button outline (click)="setDeviceState(0,1)" [disabled]="auto"><span>关闭</span></button>
+        <ion-range min="0" max="100" step=10 [(ngModel)]="saturation" pin="true" (ionBlur)="rangeChange()">
+            <ion-label range-left>0</ion-label>
+            <ion-label range-right>100</ion-label>
+        </ion-range>
+    </div>
+    <ion-grid margin-top>
+        <ion-row>
+            <ion-col text-center>
+                <button ion-button outline (click)="setDeviceState(100,1)" [disabled]="auto"><span>打开</span></button>
+            </ion-col>
+            <ion-col text-center>
+                <button ion-button outline (click)="setDeviceState(saturation,0)" [disabled]="auto"><span>停止</span></button>
+            </ion-col>
+            <ion-col text-center>
+                <button ion-button outline (click)="setDeviceState(0,1)" [disabled]="auto"><span>关闭</span></button>
 
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

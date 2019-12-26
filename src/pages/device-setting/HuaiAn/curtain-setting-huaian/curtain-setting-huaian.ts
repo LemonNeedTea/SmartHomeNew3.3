@@ -94,21 +94,8 @@ export class CurtainSettingHuaianPage {
 
   }
 
-  timerObj: any;
   rangeChange() {
-    // console.log(this.saturation);
-    // this.setDeviceState(this.saturation, 1);
-
-    if (!this.timerObj) {
-      this.timerObj = setTimeout(() => {
-        // console.log(this.saturation);
-        this.setDeviceState(this.saturation, 1);
-        clearTimeout(this.timerObj);
-        this.timerObj = null;
-      }, 1000);
-    }
-
-
+    this.setDeviceState(this.saturation, 1);
   }
 
 }
